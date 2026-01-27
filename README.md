@@ -232,6 +232,7 @@ Provide REST API access for integration
 Add live earthquake data integration
 
 ## Project Links
+* huggingface cloud live demo : **https://huggingface.co/spaces/venugopal99Bathula/Earthquake-Magnitude-Prediction-EQ-ML-project**
 * Streamlit Cloud Live Demo (optional): **https://earthquake-magnitude-prediction-eq-ml-project-ctbtbggbvuw5z8sv.streamlit.app/**
 
 ## Disclaimer
