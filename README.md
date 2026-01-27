@@ -1,188 +1,235 @@
-# Predictive-Modeling-of-Earthquake-Magnitude-using-Seismic-Data
-
+# Predictive Modeling of Earthquake Magnitude Using Seismic Data
 ## Project Overview
 
-* This project implements an end-to-end machine learning pipeline to predict earthquake magnitude using historical seismic data. The system processes structured earthquake-related features, trains a supervised learning model, and deploys the final model as an interactive web application on Streamlit Cloud for real-time prediction.
+This project implements an end-to-end machine learning pipeline to predict earthquake magnitude using historical seismic data. The system processes structured earthquake-related features, trains an optimized Random Forest Regressor, and deploys the final model as an interactive web application for real-time prediction.
 
-* The project demonstrates the complete ML lifecycle, including preprocessing, pipeline versioning, model training, evaluation, and production deployment.
+The project demonstrates the complete ML lifecycle including:
+
+Data preprocessing
+
+Pipeline creation and versioning
+
+Model training and hyperparameter tuning
+
+Model evaluation
+
+Production deployment
 
 ## Problem Statement
 
-* Earthquakes pose significant risks to life and infrastructure. While earthquakes cannot be prevented, predictive modeling using historical seismic data can help estimate earthquake magnitude and support preparedness, monitoring, and analytical decision-making.
+Earthquakes pose significant risks to life and infrastructure. While earthquakes cannot be prevented, predictive modeling using historical seismic data can help estimate earthquake magnitude and support preparedness, monitoring, and analytical decision-making.
 
-* The objective of this project is to:
+The objective of this project is to:
 
-* Analyze seismic attributes associated with earthquakes
+Analyze seismic attributes associated with earthquakes
 
-* Build a machine learning model to predict earthquake magnitude
+Build a machine learning model to predict earthquake magnitude
 
-* Provide a user-friendly interface for real-time prediction
+Provide a user-friendly interface for real-time prediction
 
 ## Key Challenges
 
-* Seismic data contains noise and variability
+Seismic data contains noise and high variability
 
-* Multiple numerical features influence earthquake magnitude
+Multiple numerical features influence earthquake magnitude
 
-* Selecting a model that balances interpretability and performance
+Selecting a model that balances accuracy and generalization
 
-* Ensuring consistent preprocessing during training and inference
+Ensuring consistent preprocessing during training and inference
 
-* Deploying a reproducible model for real-time use
+Deploying a reproducible model for real-time usage
 
 ## Project Objectives
 
-* Clean and preprocess earthquake-related data
+Clean and preprocess earthquake-related data
 
-* Engineer meaningful features from seismic parameters
+Engineer meaningful features from seismic parameters
 
-* Train and evaluate machine learning models
+Train and evaluate multiple machine learning models
 
-* Select the best-performing model
+Select the best-performing model using evaluation metrics
 
-* Deploy the trained pipeline using Streamlit Cloud
+Deploy the trained pipeline for real-time prediction
 
 ## Dataset Description
 
-* Data Type: Structured seismic dataset
+Data Type: Structured seismic dataset
 
-## Input Features:
+Input Features:
 
-* Latitude
+Latitude
 
-* Longitude
+Longitude
 
-* Depth
+Depth
 
-* RMS
+Dmin
 
-* Distance metrics
+RMS
 
-* Error-related seismic parameters
+Horizontal Error
 
-* Target Variable: Earthquake Magnitude
+Depth Error
 
-* Source: Publicly available earthquake/seismic datasets
+Target Variable:
+
+Earthquake Magnitude
+
+Source:
+Publicly available earthquake / seismic datasets
 
 ## System Workflow
 Raw Seismic Data
-   ↓
+      ↓
 Data Cleaning & Preprocessing
-   ↓
+      ↓
 Feature Engineering
-   ↓
-Model Training
-   ↓
+      ↓
+Model Training & Tuning
+      ↓
 Model Evaluation
-   ↓
+      ↓
 Pipeline Serialization
-   ↓
-Streamlit Deployment
+      ↓
+Web Application Deployment
 
 ## Data Preprocessing & Feature Engineering
 
-* The preprocessing pipeline ensures consistency and reproducibility:
+The preprocessing pipeline ensures consistency and reproducibility:
 
-* Handling missing and invalid values
+Handling missing and invalid values
 
-* Feature scaling and normalization (where applicable)
+Feature transformation where required
 
-* Selection of relevant seismic attributes
+Selection of relevant seismic attributes
 
-* Pipeline versioning to ensure training–inference parity
+Pipeline versioning to ensure training–inference parity
 
-* All preprocessing steps are embedded within the ML pipeline.
+All preprocessing steps are embedded within the ML pipeline to avoid data leakage and ensure deployment consistency.
 
 ## Model Development
-### Selected Model
+### Final Selected Model
 
-* Algorithm: Decision Tree Regressor
+Algorithm: Random Forest Regressor
+Learning Type: Supervised Machine Learning (Regression)
 
-* Learning Type: Supervised Machine Learning (Regression)
+### Why Random Forest?
 
-### Why Decision Tree?
+Handles non-linear relationships efficiently
 
-* Handles non-linear relationships effectively
+Robust against noise and outliers
 
-* Requires minimal feature scaling
+Reduces overfitting using ensemble averaging
 
-* Easy to interpret decision logic
+High predictive accuracy
 
-* Fast inference suitable for deployment
+No strict requirement for feature scaling
+
+Suitable for production deployment
+
+### Other Models Evaluated
+
+K-Nearest Neighbors (KNN)
+
+Linear Regression
+
+Decision Tree Regressor
+
+Voting Regressor
+
+Stacking Regressor
+
+AdaBoost Regressor
+
+Gradient Boosting Regressor
+
+XGBoost Regressor
+
+The Random Forest model achieved the best balance between accuracy and generalization.
 
 ## Model Evaluation
 
-* The model was evaluated using standard regression metrics:
+The models were evaluated using:
 
-* Mean Absolute Error (MAE)
+R² Score
 
-* Mean Squared Error (MSE)
+Mean Absolute Error (MAE)
 
-* Root Mean Squared Error (RMSE)
+Mean Squared Error (MSE)
 
-* These metrics provide insight into the accuracy and reliability of magnitude predictions.
+Root Mean Squared Error (RMSE)
 
-## Deployment – Streamlit Cloud
-* Application Overview
+Train and test metrics were compared to ensure minimal overfitting and good generalization performance.
 
-* The trained pipeline is deployed as an interactive Streamlit web application, allowing users to:
+## Deployment – Web Application
+Application Overview
 
-* Input seismic parameters
+The trained pipeline is deployed as an interactive web application that allows users to:
 
-* Generate real-time earthquake magnitude predictions
+Input seismic parameters
 
-* Interact with the model without local setup
+Generate real-time earthquake magnitude predictions
 
-* Deployment Features
+Use the model without any local environment setup
 
-* Serialized pipeline (.pkl)
+Deployment Features
 
-* Real-time inference
+Serialized ML pipeline (.pkl)
 
-* User-friendly UI
+Real-time inference
 
-* Cloud-hosted accessibility
+User-friendly interface
+
+Cloud-hosted accessibility
 
 ## Repository Structure
-├── version_change_EARTH_QUAKE_PIPELINE_MODEL.ipynb
-├── eq_dt_pipeline_2.pkl
+├── EARTH_QUAKE_PIPELINE_MODEL.ipynb
+├── eq_RANDOMFOREST_pipeline.pkl
 ├── app.py
 ├── requirements.txt
 ├── README.md
 
 ## Technology Stack
 
-* Programming Language: Python
+Programming Language: Python
 
-* Data Analysis: Pandas, NumPy
+Data Processing: Pandas, NumPy
 
-* Machine Learning: Scikit-learn (Decision Tree)
+Machine Learning: Scikit-learn
 
-* Model Serialization: Pickle
+Model Serialization: Pickle
 
-* Deployment: Streamlit Cloud
+Pipeline: Scikit-learn Pipeline + GridSearchCV
+
+Deployment: Gradio / Cloud Hosting
 
 ## Key Outcomes
 
-* Built a complete earthquake magnitude prediction pipeline
+Built a complete earthquake magnitude prediction pipeline
 
-* Successfully deployed a real-time prediction application
+Trained and optimized a Random Forest regression model
 
-* Demonstrated ML pipeline versioning and reproducibility
+Evaluated multiple ensemble algorithms
 
-* Applied machine learning to real-world seismic data
+Successfully deployed a real-time prediction application
+
+Demonstrated ML pipeline versioning and reproducibility
+
+Applied machine learning to real-world seismic data
 
 ## Future Enhancements
 
-* Experiment with ensemble models (Random Forest, Gradient Boosting)
+Experiment with advanced boosting models (LightGBM, CatBoost)
 
-* Incorporate temporal and geospatial features
+Incorporate temporal and geospatial feature engineering
 
-* Improve performance using hyperparameter tuning
+Improve prediction accuracy with advanced tuning
 
-* Add uncertainty estimation to predictions
+Add uncertainty estimation to predictions
 
-* Integrate API-based access for broader usage
+Provide REST API access for integration
+
+Add live earthquake data integration
 
 ## Project Links
 * Streamlit Cloud Live Demo (optional): **https://earthquake-magnitude-prediction-eq-ml-project-ctbtbggbvuw5z8sv.streamlit.app/**
